@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://microcut-engineering.web.app/sitemap.xml
+Sitemap: https://microcut.vercel.app/sitemap.xml
