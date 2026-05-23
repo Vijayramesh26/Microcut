@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://microcut-engineering.web.app/sitemap.xml
