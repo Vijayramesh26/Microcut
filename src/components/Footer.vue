@@ -55,8 +55,8 @@
               <v-icon color="secondary" size="18" class="mr-3 mt-1">mdi-email-outline</v-icon>
               <div>
                 <div class="text-body-2 text-grey-lighten-2">Official Inquiry Mail:</div>
-                <a href="mailto:microcutengineerings@gmail.com" target="_blank" rel="noopener noreferrer" class="text-body-2 font-weight-bold text-accent text-decoration-none d-block mt-0.5">
-                  microcutengineerings@gmail.com
+                <a href="mailto:microcutengineerings@gmail.com" target="_blank" rel="noopener noreferrer" class="text-body-2 font-weight-bold text-accent text-decoration-none d-block mt-0.5" style="word-break: break-word; overflow-wrap: break-word;">
+                  microcutengineerings<wbr>@gmail.com
                 </a>
               </div>
             </div>

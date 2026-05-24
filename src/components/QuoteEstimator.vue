@@ -166,7 +166,7 @@
                 @click="submitQuotation"
               >
                 <v-icon start>mdi-send-check-outline</v-icon>
-                Submit Estimate to Admin Dashboard
+                Submit Estimate Request
               </v-btn>
             </v-form>
           </v-card>
@@ -238,7 +238,7 @@
     <v-snackbar v-model="snackbar" color="success" rounded="xl" timeout="4000">
       <div class="d-flex align-center">
         <v-icon class="mr-2">mdi-check-circle</v-icon>
-        <span>Estimate sent successfully! Open the **Admin Portal** at the top right to view the live dashboard!</span>
+        <span>Estimate submitted successfully! Our engineering team will contact you shortly.</span>
       </div>
     </v-snackbar>
   </section>

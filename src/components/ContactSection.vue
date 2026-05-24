@@ -67,8 +67,8 @@
               <v-card flat color="rgba(50, 140, 193, 0.08)" class="pa-4 rounded-xl border text-center hover-scale" style="border-color: rgba(50, 140, 193, 0.2) !important;">
                 <v-icon color="secondary" size="28" class="mb-1">mdi-email-outline</v-icon>
                 <div class="text-caption text-secondary font-weight-bold tracking-wide">OFFICIAL EMAIL</div>
-                <a href="mailto:microcutengineerings@gmail.com" target="_blank" rel="noopener noreferrer" class="text-body-1 font-weight-black text-primary text-decoration-none mt-1 d-block">
-                  microcutengineerings@gmail.com
+                <a href="mailto:microcutengineerings@gmail.com" target="_blank" rel="noopener noreferrer" class="text-body-1 font-weight-black text-primary text-decoration-none mt-1 d-block" style="word-break: break-word; overflow-wrap: break-word;">
+                  microcutengineerings<wbr>@gmail.com
                 </a>
               </v-card>
             </div>
