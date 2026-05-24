@@ -1,19 +1,20 @@
 <template>
-  <section id="about" class="py-16 px-4 bg-background">
+  <section id="about" class="py-16 px-4 bg-background cad-blueprint-bg">
     <v-container>
       <!-- Section Title -->
-      <v-row class="justify-center mb-12">
+      <v-row class="justify-center mb-12" style="position: relative; z-index: 2;">
         <v-col cols="12" class="text-center fade-up" v-animate>
           <span class="text-subtitle-2 font-weight-black text-secondary tracking-widest text-uppercase">Who We Are</span>
-          <h2 class="text-h4 text-sm-h3 font-weight-black text-primary mt-2">Refashioning the Machining Industry</h2>
+          <div class="font-mono text-caption text-grey mt-1">[SYS-REF: WH0-WE-ARE]</div>
+          <h2 class="laser-header text-h4 text-sm-h3 font-weight-black text-primary mt-2" v-animate>Refashioning the Machining Industry</h2>
           <v-sheet color="accent" height="4" width="80" class="mx-auto mt-4 rounded-pill"></v-sheet>
         </v-col>
       </v-row>
 
-      <v-row class="align-stretch">
+      <v-row class="align-start">
         <!-- Left Side: Company Overview and Stats -->
-        <v-col cols="12" lg="6" class="d-flex flex-column justify-space-between">
-          <v-card flat class="pa-6 rounded-xl border border-opacity-10 mb-6 bg-surface hover-scale flex-grow-1 d-flex flex-column justify-center fade-right" v-animate style="border-color: rgba(143, 166, 180, 0.2) !important;">
+        <v-col cols="12" lg="6" class="d-flex flex-column fade-right" v-animate style="gap: 24px !important;">
+          <v-card flat class="pa-6 rounded-xl border border-opacity-10 bg-surface hover-scale tech-card" style="border-color: rgba(143, 166, 180, 0.2) !important;">
             <div class="d-flex align-center mb-4">
               <v-icon color="secondary" size="32" class="mr-3">mdi-rocket-launch-outline</v-icon>
               <h3 class="text-h5 font-weight-bold text-primary">Microcut Engineering</h3>
@@ -27,9 +28,9 @@
           </v-card>
 
           <!-- Core Attributes Grid -->
-          <v-row>
+          <v-row class="mb-lg-0 mb-6">
             <v-col cols="12" sm="6">
-              <v-card flat class="pa-5 rounded-xl border border-opacity-10 bg-surface hover-scale fill-height d-flex align-center fade-up delay-100" v-animate style="border-color: rgba(143, 166, 180, 0.2) !important;">
+              <v-card flat class="pa-5 rounded-xl border border-opacity-10 bg-surface hover-scale d-flex align-center tech-card" style="border-color: rgba(143, 166, 180, 0.2) !important;">
                 <v-avatar color="rgba(217, 179, 16, 0.1)" class="mr-4" size="48">
                   <v-icon color="accent" size="24">mdi-crane</v-icon>
                 </v-avatar>
@@ -40,8 +41,8 @@
               </v-card>
             </v-col>
             <v-col cols="12" sm="6">
-              <v-card flat class="pa-5 rounded-xl border border-opacity-10 bg-surface hover-scale fill-height d-flex align-center fade-up delay-200" v-animate style="border-color: rgba(143, 166, 180, 0.2) !important;">
-                <v-avatar color="rgba(50, 140, 193, 0.1)" class="mr-4" size="48">
+              <v-card flat class="pa-5 rounded-xl border border-opacity-10 bg-surface hover-scale d-flex align-center tech-card" style="border-color: rgba(143, 166, 180, 0.2) !important;">
+                <v-avatar color="rgba(255, 183, 3, 0.1)" class="mr-4" size="48">
                   <v-icon color="secondary" size="24">mdi-cctv</v-icon>
                 </v-avatar>
                 <div>
@@ -54,9 +55,9 @@
         </v-col>
 
         <!-- Right Side: Company Details & Vision Pillars -->
-        <v-col cols="12" lg="6" class="d-flex flex-column">
+        <v-col cols="12" lg="6" class="d-flex flex-column fade-left delay-100" v-animate style="gap: 24px !important;">
           <!-- Corporate Spec Panel -->
-          <v-card flat class="pa-6 rounded-xl bg-primary text-white mb-6 hover-scale fade-left delay-100" v-animate style="position: relative; overflow: hidden;">
+          <v-card flat class="pa-6 rounded-xl text-white hover-scale tech-card" style="position: relative; overflow: hidden; background-color: #0B3C5D !important;">
             <v-icon size="180" color="rgba(255, 255, 255, 0.03)" style="position: absolute; right: -20px; bottom: -40px; pointer-events: none;">mdi-factory</v-icon>
             
             <h3 class="text-h5 font-weight-bold mb-4 text-accent">Key Company Constituent</h3>
@@ -82,7 +83,7 @@
           </v-card>
 
           <!-- Core Vision Card -->
-          <v-card flat class="pa-6 rounded-xl border border-opacity-10 bg-surface hover-scale flex-grow-1 fade-left delay-200" v-animate style="border-color: rgba(143, 166, 180, 0.2) !important;">
+          <v-card flat class="pa-6 rounded-xl border border-opacity-10 bg-surface hover-scale tech-card" style="border-color: rgba(143, 166, 180, 0.2) !important;">
             <h3 class="text-h5 font-weight-bold text-primary mb-6 d-flex align-center">
               <v-icon color="accent" class="mr-2">mdi-eye-outline</v-icon>
               Our Vision Pillars
@@ -90,7 +91,7 @@
 
             <div class="d-flex flex-column gap-y-4">
               <div v-for="(pillar, i) in visionPillars" :key="i" class="d-flex align-start">
-                <v-avatar color="rgba(50, 140, 193, 0.15)" class="mr-4" size="32" style="margin-top: 2px;">
+                <v-avatar color="rgba(255, 183, 3, 0.15)" class="mr-4" size="32" style="margin-top: 2px;">
                   <span class="text-subtitle-2 font-weight-black text-secondary">{{ i + 1 }}</span>
                 </v-avatar>
                 <div>

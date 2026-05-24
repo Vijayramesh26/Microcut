@@ -1,11 +1,12 @@
 <template>
-  <section id="gallery" class="py-16 px-4 bg-surface" style="border-bottom: 1px solid rgba(143, 166, 180, 0.1);">
+  <section id="gallery" class="py-16 px-4 bg-surface cad-blueprint-bg" style="border-bottom: 1px solid rgba(143, 166, 180, 0.1);">
     <v-container>
       <!-- Section Header -->
-      <v-row class="justify-center mb-10">
-        <v-col cols="12" class="text-center">
+      <v-row class="justify-center mb-10" style="position: relative; z-index: 2;">
+        <v-col cols="12" class="text-center fade-up" v-animate>
           <span class="text-subtitle-2 font-weight-black text-secondary tracking-widest text-uppercase">Our Work</span>
-          <h2 class="text-h4 text-sm-h3 font-weight-black text-primary mt-2">Facility & Operations</h2>
+          <div class="font-mono text-caption text-grey mt-1">[SYS-REF: FAC-PLANT-SHOW]</div>
+          <h2 class="laser-header text-h4 text-sm-h3 font-weight-black text-primary mt-2" v-animate>Facility &amp; Operations</h2>
           <v-sheet color="accent" height="4" width="80" class="mx-auto mt-4 rounded-pill"></v-sheet>
           <p class="text-body-2 text-grey-darken-1 mt-4 max-width-md mx-auto">
             Take a look inside our state-of-the-art SIDCO industrial plant and see our precision cutting machines in action.
@@ -26,7 +27,7 @@
           <v-hover v-slot="{ isHovering, props }">
             <v-card
               flat
-              class="rounded-xl overflow-hidden position-relative border cursor-pointer hover-scale"
+              class="rounded-xl overflow-hidden position-relative border cursor-pointer hover-scale tech-card"
               style="border-color: rgba(143, 166, 180, 0.2) !important; aspect-ratio: 4/3;"
               v-bind="props"
             >

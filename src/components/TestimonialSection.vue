@@ -1,11 +1,12 @@
 <template>
-  <section id="testimonials" class="py-16 px-4 bg-background">
+  <section id="testimonials" class="py-16 px-4 bg-background cad-blueprint-bg">
     <v-container>
       <!-- Section Header -->
-      <v-row class="justify-center mb-10">
-        <v-col cols="12" class="text-center">
+      <v-row class="justify-center mb-10" style="position: relative; z-index: 2;">
+        <v-col cols="12" class="text-center fade-up" v-animate>
           <span class="text-subtitle-2 font-weight-black text-secondary tracking-widest text-uppercase">Client Reviews</span>
-          <h2 class="text-h4 text-sm-h3 font-weight-black text-primary mt-2">What Our Partners Say</h2>
+          <div class="font-mono text-caption text-grey mt-1">[SYS-REF: PRT-RATING-5]</div>
+          <h2 class="laser-header text-h4 text-sm-h3 font-weight-black text-primary mt-2" v-animate>What Our Partners Say</h2>
           <v-sheet color="accent" height="4" width="80" class="mx-auto mt-4 rounded-pill"></v-sheet>
         </v-col>
       </v-row>
@@ -21,7 +22,7 @@
         >
           <v-card
             flat
-            class="pa-6 rounded-xl border bg-surface fill-height d-flex flex-column hover-scale"
+            class="pa-6 rounded-xl border bg-surface fill-height d-flex flex-column hover-scale tech-card"
             style="border-color: rgba(143, 166, 180, 0.2) !important;"
           >
             <div class="mb-4">

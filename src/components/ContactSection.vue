@@ -1,11 +1,12 @@
 <template>
-  <section id="contact" class="py-16 px-4 bg-background">
+  <section id="contact" class="py-16 px-4 bg-background cad-blueprint-bg">
     <v-container>
       <!-- Section Header -->
       <v-row class="justify-center mb-12">
         <v-col cols="12" class="text-center fade-up" v-animate>
           <span class="text-subtitle-2 font-weight-black text-secondary tracking-widest text-uppercase">Get In Touch</span>
-          <h2 class="text-h4 text-sm-h3 font-weight-black text-primary mt-2">Contact Microcut Engineering</h2>
+          <div class="font-mono text-caption text-grey mt-1">[SYS-REF: CNC-PLANT-TALK]</div>
+          <h2 class="laser-header text-h4 text-sm-h3 font-weight-black text-primary mt-2" v-animate>Contact Microcut Engineering</h2>
           <v-sheet color="accent" height="4" width="80" class="mx-auto mt-4 rounded-pill"></v-sheet>
           <p class="text-body-2 text-grey-darken-1 mt-4 max-width-md mx-auto">
             Looking forward to your valuable support. Reach out to our managing partners directly or send us a quick email message.
@@ -15,8 +16,8 @@
 
       <v-row class="align-stretch mb-8">
         <!-- Left Column: Partners Cards & Contact Details -->
-        <v-col cols="12" lg="5" class="d-flex flex-column">
-          <v-card flat class="pa-8 rounded-2xl border bg-surface flex-grow-1 d-flex flex-column fade-right delay-100" v-animate style="border-color: rgba(143, 166, 180, 0.2) !important;">
+        <v-col cols="12" lg="5" class="d-flex flex-column fade-right delay-100" v-animate>
+          <v-card flat class="pa-8 rounded-2xl border bg-surface flex-grow-1 d-flex flex-column" style="border-color: rgba(143, 166, 180, 0.2) !important;">
             <h3 class="text-h5 font-weight-black text-primary mb-6 d-flex align-center">
               <v-icon color="secondary" class="mr-2">mdi-phone-in-talk-outline</v-icon>
               Managing Partners
@@ -64,7 +65,7 @@
               <v-divider class="my-6" style="opacity: 0.5;"></v-divider>
 
               <!-- Email Card -->
-              <v-card flat color="rgba(50, 140, 193, 0.08)" class="pa-4 rounded-xl border text-center hover-scale" style="border-color: rgba(50, 140, 193, 0.2) !important;">
+              <v-card flat color="rgba(255, 183, 3, 0.06)" class="pa-4 rounded-xl border text-center hover-scale" style="border-color: rgba(255, 183, 3, 0.2) !important;">
                 <v-icon color="secondary" size="28" class="mb-1">mdi-email-outline</v-icon>
                 <div class="text-caption text-secondary font-weight-bold tracking-wide">OFFICIAL EMAIL</div>
                 <a href="mailto:microcutengineerings@gmail.com" target="_blank" rel="noopener noreferrer" class="text-body-1 font-weight-black text-primary text-decoration-none mt-1 d-block" style="word-break: break-word; overflow-wrap: break-word;">
@@ -76,8 +77,8 @@
         </v-col>
 
         <!-- Right Column: Interactive Email Contact Form -->
-        <v-col cols="12" lg="7" class="d-flex flex-column">
-          <v-card flat class="pa-8 rounded-2xl border bg-surface flex-grow-1 d-flex flex-column fade-left delay-200" v-animate style="border-color: rgba(143, 166, 180, 0.2) !important;">
+        <v-col cols="12" lg="7" class="d-flex flex-column fade-left delay-200" v-animate>
+          <v-card flat class="pa-8 rounded-2xl border bg-surface flex-grow-1 d-flex flex-column" style="border-color: rgba(143, 166, 180, 0.2) !important;">
             <h3 class="text-h5 font-weight-black text-primary mb-2">Send Us A Message</h3>
             <p class="text-body-2 text-grey-darken-1 mb-6">Have questions or custom machining requirements? Drop us a line below and we'll reply within 24 hours.</p>
 
@@ -157,7 +158,7 @@
                 <div class="mb-4 d-flex align-center justify-space-between">
                   <div>
                     <v-chip color="primary" variant="flat" size="small" class="font-weight-black mb-1">UNIT I</v-chip>
-                    <div class="text-body-2 text-grey-darken-3 font-weight-medium leading-relaxed">
+                    <div class="text-body-2 font-weight-medium leading-relaxed" :class="isDark ? 'text-grey-lighten-2' : 'text-grey-darken-3'">
                       No. 147, NEW NO: 64 (NP), <br />
                       SIDCO Industrial Estate, Ambattur, Chennai : 600098
                     </div>
@@ -171,11 +172,11 @@
             </v-col>
 
             <v-col cols="12" md="6">
-              <v-card flat class="pa-4 rounded-xl border bg-surface fill-height d-flex flex-column overflow-hidden" style="border-color: rgba(143, 166, 180, 0.2) !important; min-height: 350px;">
+              <v-card flat class="pa-4 rounded-xl border bg-surface fill-height d-flex flex-column overflow-hidden fade-up delay-400" v-animate style="border-color: rgba(143, 166, 180, 0.2) !important; min-height: 350px;">
                 <div class="mb-4 d-flex align-center justify-space-between">
                   <div>
                     <v-chip color="secondary" variant="flat" size="small" class="font-weight-black mb-1">UNIT II</v-chip>
-                    <div class="text-body-2 text-grey-darken-3 font-weight-medium leading-relaxed">
+                    <div class="text-body-2 font-weight-medium leading-relaxed" :class="isDark ? 'text-grey-lighten-2' : 'text-grey-darken-3'">
                       No. 48B (NP), <br />
                       SIDCO Industrial Estate, Ambattur, Chennai : 600098
                     </div>
@@ -203,11 +204,14 @@
 </template>
 
 <script>
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
+import { useTheme } from 'vuetify'
 
 export default {
   name: 'ContactSection',
   setup() {
+    const theme = useTheme()
+    const isDark = computed(() => theme.global.name.value === 'dark')
     const contactValid = ref(false)
     const msgSnackbar = ref(false)
 

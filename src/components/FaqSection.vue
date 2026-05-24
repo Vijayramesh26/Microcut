@@ -7,13 +7,13 @@
           <v-chip color="secondary" variant="flat" size="small" class="font-weight-black mb-4 tracking-widest text-uppercase">
             Support & Inquiries
           </v-chip>
-          <h2 class="text-h4 text-sm-h3 font-weight-black text-primary mb-4">Frequently<br>Asked Questions</h2>
+          <h2 class="laser-header text-h4 text-sm-h3 font-weight-black text-primary mb-4" v-animate>Frequently<br>Asked Questions</h2>
           <p class="text-body-1 text-grey-darken-1 mb-8 leading-relaxed">
             Find quick answers to some of the most common questions about our machinery, capacity, and material handling capabilities. We believe in complete transparency.
           </p>
 
           <v-card flat class="pa-6 rounded-xl border bg-background text-center d-flex flex-column align-center hover-scale" style="border-color: rgba(143, 166, 180, 0.2) !important;">
-            <v-avatar color="rgba(50, 140, 193, 0.1)" size="64" class="mb-4">
+            <v-avatar color="rgba(255, 183, 3, 0.1)" size="64" class="mb-4">
               <v-icon color="secondary" size="32">mdi-account-question-outline</v-icon>
             </v-avatar>
             <h4 class="text-h6 font-weight-black text-primary mb-2">Still have questions?</h4>
@@ -108,7 +108,7 @@ export default {
 }
 .custom-panels :deep(.v-expansion-panel--active) {
   box-shadow: 0 4px 20px rgba(11, 60, 93, 0.08) !important;
-  border-color: rgba(50, 140, 193, 0.4) !important;
+  border-color: rgba(255, 183, 3, 0.35) !important;
 }
 .custom-panels :deep(.v-expansion-panel::after) {
   display: none !important;

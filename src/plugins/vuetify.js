@@ -26,19 +26,19 @@ const lightTheme = {
 const darkTheme = {
   dark: true,
   colors: {
-    background: '#0B111E',   // Midnight steel
-    surface: '#151F32',      // Deep charcoal-blue
-    primary: '#328CC1',      // Machined Blue
-    secondary: '#8FA6B4',    // Steel Gray
-    accent: '#F26A36',       // Molten Orange (represents heat cutting)
+    background: '#02060c',   // Premium matte black CNC console canvas
+    surface: '#070d14',      // Ultra-premium charcoal black card background
+    primary: '#ffb703',      // Gilded yellow-gold
+    secondary: '#8fa6b4',    // Steel Gray
+    accent: '#ffb703',       // Yellow-gold accents
     error: '#EF5350',
     info: '#42A5F5',
     success: '#66BB6A',
     warning: '#FFA726',
     'on-background': '#ECEFF1',
     'on-surface': '#ECEFF1',
-    'on-primary': '#FFFFFF',
-    'on-secondary': '#0F172A',
+    'on-primary': '#02060c', // High contrast black text on gold buttons!
+    'on-secondary': '#FFFFFF',
   }
 }
 

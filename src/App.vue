@@ -1,5 +1,8 @@
 <template>
   <v-app :theme="themeName">
+    <!-- Premium High-Tech Splash Screen Loader -->
+    <SplashScreen />
+
     <!-- Navigation Glass Bar -->
     <Navbar @toggle-theme="toggleTheme" />
 
@@ -48,6 +51,7 @@ import { ref } from "vue";
 import { useTheme } from "vuetify";
 
 // Component Imports
+import SplashScreen from "./components/SplashScreen.vue";
 import Navbar from "./components/Navbar.vue";
 import HeroSection from "./components/HeroSection.vue";
 import CountersBar from "./components/CountersBar.vue";
@@ -67,12 +71,19 @@ import Footer from "./components/Footer.vue";
 import FloatingContact from "./components/FloatingContact.vue";
 
 const theme = useTheme();
-const themeName = ref("light");
+
+// Persistent theme tracking: read saved theme from localStorage, default to 'light'
+const savedTheme = localStorage.getItem("theme") || "light";
+const themeName = ref(savedTheme);
+theme.global.name.value = savedTheme;
+
 const latestQuote = ref(null);
 
 const toggleTheme = () => {
   themeName.value = themeName.value === "light" ? "dark" : "light";
   theme.global.name.value = themeName.value;
+  // Save the selected theme state persistently
+  localStorage.setItem("theme", themeName.value);
 };
 
 const handleNewQuote = (payload) => {

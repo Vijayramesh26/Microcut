@@ -1,11 +1,12 @@
 <template>
-  <section id="machinery" class="py-16 px-4 bg-background">
+  <section id="machinery" class="py-16 px-4 bg-background cad-blueprint-bg">
     <v-container>
       <!-- Section Header -->
-      <v-row class="justify-center mb-12">
+      <v-row class="justify-center mb-12" style="position: relative; z-index: 2;">
         <v-col cols="12" class="text-center fade-up" v-animate>
           <span class="text-subtitle-2 font-weight-black text-secondary tracking-widest text-uppercase">Infrastructure</span>
-          <h2 class="text-h4 text-sm-h3 font-weight-black text-primary mt-2">Machinery &amp; Capacities</h2>
+          <div class="font-mono text-caption text-grey mt-1">[PLANT-CAP: B-CUT-330]</div>
+          <h2 class="laser-header text-h4 text-sm-h3 font-weight-black text-primary mt-2" v-animate>Machinery &amp; Capacities</h2>
           <v-sheet color="accent" height="4" width="80" class="mx-auto mt-4 rounded-pill"></v-sheet>
           <p class="text-body-2 text-grey-darken-1 mt-4 max-width-md mx-auto">
             Equipped with high-performance automatic bandsaws and circular saws capable of precision bundle and high-tolerance rod cuts.
@@ -16,7 +17,7 @@
       <!-- Featured Machine Highlight -->
       <v-row class="mb-12">
         <v-col cols="12">
-          <v-card flat class="rounded-2xl border overflow-hidden bg-surface hover-scale fade-up delay-100" v-animate style="border-color: rgba(143, 166, 180, 0.2) !important;">
+          <v-card flat class="rounded-2xl border overflow-hidden bg-surface hover-scale fade-up delay-100 tech-card" v-animate style="border-color: rgba(143, 166, 180, 0.2) !important;">
             <v-row class="align-center g-0">
               <!-- Left side: Gorgeous Image -->
               <v-col cols="12" md="6" class="pa-0">
@@ -74,7 +75,7 @@
           lg="3"
           class="d-flex"
         >
-          <v-card flat :class="['pa-6 rounded-xl border bg-surface hover-scale flex-grow-1 d-flex flex-column justify-space-between fade-up', 'delay-' + ((idx % 4) + 1) * 100]" v-animate style="border-color: rgba(143, 166, 180, 0.2) !important;">
+          <v-card flat :class="['pa-6 rounded-xl border bg-surface hover-scale flex-grow-1 d-flex flex-column justify-space-between fade-up tech-card', 'delay-' + ((idx % 4) + 1) * 100]" v-animate style="border-color: rgba(143, 166, 180, 0.2) !important;">
             <div>
               <div class="d-flex align-center justify-space-between mb-4">
                 <v-avatar :color="machine.color" size="44">

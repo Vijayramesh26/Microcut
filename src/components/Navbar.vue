@@ -1,5 +1,4 @@
 <template>
-  <div>
     <!-- Navigation Bar -->
     <v-app-bar
       flat
@@ -9,14 +8,14 @@
       :color="isDark ? 'rgba(21, 31, 50, 0.85)' : 'rgba(255, 255, 255, 0.85)'"
     >
       <!-- Logo / Title -->
-      <v-avatar class="mr-3" rounded="lg" color="primary" size="40">
-        <v-icon color="accent" size="24">mdi-axis-arrow</v-icon>
+      <v-avatar class="mr-3" rounded="lg" :color="isDark ? '#0F172A' : 'primary'" size="40" style="border: 1px solid rgba(143, 166, 180, 0.2)">
+        <v-icon :color="isDark ? 'primary' : 'accent'" size="24">mdi-axis-arrow</v-icon>
       </v-avatar>
       
       <div>
-        <v-app-bar-title class="font-weight-black text-h6 tracking-widest text-primary d-flex align-center">
+        <v-app-bar-title class="font-weight-black text-h6 tracking-widest d-flex align-center" :class="isDark ? 'text-white' : 'text-primary'">
           MICROCUT
-          <span class="text-accent font-weight-light ml-1 text-subtitle-2 d-none d-sm-inline">ENGINEERING</span>
+          <span class="font-weight-light ml-1 text-subtitle-2 d-none d-sm-inline" :class="isDark ? 'text-accent' : 'text-secondary'">ENGINEERING</span>
         </v-app-bar-title>
       </div>
 
@@ -32,6 +31,7 @@
                 v-bind="props"
                 variant="text"
                 class="text-body-2 font-weight-medium mx-1 nav-btn text-capitalize"
+                :color="isDark ? 'white' : 'primary'"
                 append-icon="mdi-chevron-down"
               >
                 {{ item.name }}
@@ -56,6 +56,7 @@
             v-else
             variant="text"
             class="text-body-2 font-weight-medium mx-1 nav-btn text-capitalize"
+            :color="isDark ? 'white' : 'primary'"
             @click="scrollTo(item.target)"
           >
             {{ item.name }}
@@ -78,6 +79,7 @@
       <v-app-bar-nav-icon
         class="d-lg-none"
         @click="drawer = !drawer"
+        :color="isDark ? 'white' : 'primary'"
       ></v-app-bar-nav-icon>
     </v-app-bar>
 
@@ -91,8 +93,8 @@
       <v-list class="py-4">
         <v-list-item class="px-4 mb-4">
           <div class="d-flex align-center">
-            <v-avatar class="mr-3" color="primary" size="36">
-              <v-icon color="accent" size="20">mdi-axis-arrow</v-icon>
+            <v-avatar class="mr-3" :color="isDark ? '#0F172A' : 'primary'" size="36" style="border: 1px solid rgba(143, 166, 180, 0.2)">
+              <v-icon :color="isDark ? 'primary' : 'accent'" size="20">mdi-axis-arrow</v-icon>
             </v-avatar>
             <span class="font-weight-black text-h6 text-primary">MICROCUT</span>
           </div>
@@ -142,7 +144,6 @@
         </template>
       </v-list>
     </v-navigation-drawer>
-  </div>
 </template>
 
 <script>
@@ -158,7 +159,7 @@ export default {
     const theme = useTheme()
     const drawer = ref(false)
 
-    const isDark = computed(() => theme.global.current.value.dark)
+    const isDark = computed(() => theme.global.name.value === 'dark')
 
     const navItems = [
       { name: 'Home', target: 'home', icon: 'mdi-home' },

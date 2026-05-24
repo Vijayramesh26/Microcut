@@ -80,9 +80,16 @@ export default {
 
 <style scoped>
 .counters-section {
-  background: #0b1628;
-  border-top: 1px solid rgba(50, 140, 193, 0.2);
-  border-bottom: 1px solid rgba(50, 140, 193, 0.2);
+  background: #050a12;
+  border-top: 1px solid rgba(255, 183, 3, 0.2);
+  border-bottom: 1px solid rgba(255, 183, 3, 0.2);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.v-theme--light .counters-section {
+  background: #ffffff !important;
+  border-top-color: rgba(11, 60, 93, 0.1) !important;
+  border-bottom-color: rgba(11, 60, 93, 0.1) !important;
 }
 
 .counters-inner {
@@ -108,17 +115,29 @@ export default {
 }
 
 .counter-item:hover {
-  background: rgba(50, 140, 193, 0.06);
+  background: rgba(255, 183, 3, 0.06);
+}
+
+.v-theme--light .counter-item:hover {
+  background: rgba(11, 60, 93, 0.04) !important;
 }
 
 .counter-divider {
   border-right: 1px solid rgba(255, 255, 255, 0.06);
+  transition: border-color 0.3s ease;
+}
+
+.v-theme--light .counter-divider {
+  border-right-color: rgba(11, 60, 93, 0.08) !important;
 }
 
 @media (max-width: 600px) {
   .counter-divider {
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .v-theme--light .counter-divider {
+    border-bottom-color: rgba(11, 60, 93, 0.08) !important;
   }
   .counter-item {
     padding: 28px 20px;
@@ -144,6 +163,11 @@ export default {
   line-height: 1;
   letter-spacing: -1px;
   font-variant-numeric: tabular-nums;
+  transition: color 0.3s ease;
+}
+
+.v-theme--light .counter-number {
+  color: #0B3C5D !important;
 }
 
 .counter-suffix {
@@ -151,6 +175,11 @@ export default {
   font-weight: 700;
   color: rgba(217, 179, 16, 0.9);
   margin-left: 2px;
+  transition: color 0.3s ease;
+}
+
+.v-theme--light .counter-suffix {
+  color: #D9B310 !important;
 }
 
 .counter-label {
@@ -161,5 +190,10 @@ export default {
   color: rgba(255, 255, 255, 0.35);
   text-align: center;
   line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.v-theme--light .counter-label {
+  color: #4A5A6A !important;
 }
 </style>

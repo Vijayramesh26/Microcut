@@ -1,11 +1,12 @@
 <template>
-  <section id="materials" class="py-16 px-4 bg-background">
+  <section id="materials" class="py-16 px-4 bg-background cad-blueprint-bg">
     <v-container>
       <!-- Section Header -->
-      <v-row class="justify-center mb-12">
+      <v-row class="justify-center mb-12" style="position: relative; z-index: 2;">
         <v-col cols="12" class="text-center fade-up" v-animate>
           <span class="text-subtitle-2 font-weight-black text-secondary tracking-widest text-uppercase">Material Capabilities</span>
-          <h2 class="text-h4 text-sm-h3 font-weight-black text-primary mt-2">Metals We Process</h2>
+          <div class="font-mono text-caption text-grey mt-1">[SYS-REF: MAT-SPEC-CAP]</div>
+          <h2 class="laser-header text-h4 text-sm-h3 font-weight-black text-primary mt-2" v-animate>Metals We Process</h2>
           <v-sheet color="accent" height="4" width="80" class="mx-auto mt-4 rounded-pill"></v-sheet>
           <p class="text-body-2 text-grey-darken-1 mt-4 max-width-md mx-auto">
             Our high-speed automatic bandsaws and precision machining tools are optimized to handle a wide variety of industrial metals with exact tolerances.
@@ -25,7 +26,7 @@
         >
           <v-card
             flat
-            :class="['pa-6 rounded-xl border bg-surface flex-grow-1 hover-scale d-flex flex-column align-center text-center fade-up', 'delay-' + ((index % 4) + 1) * 100]"
+            :class="['pa-6 rounded-xl border bg-surface flex-grow-1 hover-scale d-flex flex-column align-center text-center fade-up tech-card', 'delay-' + ((index % 4) + 1) * 100]"
             v-animate
             style="border-color: rgba(143, 166, 180, 0.2) !important;"
           >

@@ -52,10 +52,10 @@ export default {
   top: -50%;
   left: -50%;
   background-image: 
-    linear-gradient(rgba(50, 140, 193, 0.25) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(50, 140, 193, 0.25) 1px, transparent 1px),
-    linear-gradient(rgba(50, 140, 193, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(50, 140, 193, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(255, 183, 3, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 183, 3, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(255, 183, 3, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 183, 3, 0.02) 1px, transparent 1px);
   background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
   background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
   animation: pan-grid 40s linear infinite;
@@ -101,7 +101,7 @@ export default {
 .border-dashed {
   width: 80%;
   height: 80%;
-  border: 1px dashed rgba(50, 140, 193, 0.8);
+  border: 1px dashed rgba(255, 183, 3, 0.25);
 }
 
 .border-solid {
@@ -120,14 +120,14 @@ export default {
   position: absolute;
   width: 120%;
   height: 1px;
-  background-color: rgba(50, 140, 193, 0.6);
+  background-color: rgba(255, 183, 3, 0.3);
 }
 
 .tech-crosshair-v {
   position: absolute;
   width: 1px;
   height: 120%;
-  background-color: rgba(50, 140, 193, 0.6);
+  background-color: rgba(255, 183, 3, 0.3);
 }
 
 @keyframes rotate-slow {

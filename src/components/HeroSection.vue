@@ -4,16 +4,28 @@
     class="steel-mesh-bg d-flex flex-column justify-center align-center position-relative"
     style="min-height: calc(100vh - 64px);"
   >
-    <!-- Background Ambient Glow (moves with mouse) -->
-    <div style="position: absolute; inset: 0; pointer-events: none; z-index: 1;">
+    <!-- Background Ambient Glow & Tech Scopes (moves with mouse) -->
+    <div style="position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: hidden;">
       <div id="hero-glow-right" class="ambient-glow glow-right"></div>
       <div id="hero-glow-left"  class="ambient-glow glow-left"></div>
+
+      <!-- Faint rotating tech scopes -->
+      <div class="tech-scopes-container">
+        <div class="tech-scope outer"></div>
+        <div class="tech-scope middle"></div>
+      </div>
+
+      <!-- Ambient sparks floating upwards -->
+      <div class="ambient-sparks">
+        <div v-for="n in 18" :key="n" class="ambient-spark" :style="getAmbientSparkStyle(n)"></div>
+      </div>
+
       <div style="overflow: hidden; position: absolute; inset: 0;">
         <BlueprintGrid />
       </div>
     </div>
 
-    <v-container class="position-relative text-center text-white" style="z-index: 2; max-width: 860px;">
+    <v-container class="position-relative text-center" :class="isDark ? 'text-white' : 'text-primary'" style="z-index: 2; max-width: 860px;">
 
       <!-- Live status pill -->
       <div class="live-pill mb-8 mx-auto">
@@ -51,7 +63,7 @@
         </v-btn>
         <v-btn
           variant="outlined"
-          color="white"
+          :color="isDark ? 'white' : 'primary'"
           size="large"
           class="font-weight-bold text-capitalize px-10 rounded-lg"
           style="border-width: 1.5px; opacity: 0.85;"
@@ -90,13 +102,16 @@
 </template>
 
 <script>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { useTheme } from 'vuetify'
 import BlueprintGrid from './BlueprintGrid.vue'
 
 export default {
   name: 'HeroSection',
   components: { BlueprintGrid },
   setup() {
+    const theme = useTheme()
+    const isDark = computed(() => theme.global.name.value === 'dark')
 
     // ── Typewriter ──────────────────────────────────────────────────
     const words = ['Steel Rods', 'Alloy Bars', 'MS Bundles', 'Stainless Steel', 'Bright Bars']
@@ -163,12 +178,23 @@ export default {
       '2-Ton Crane', 'Cosen Bandsaw', 'Meba Germany',
     ]
 
-    const scrollTo = (id) => {
-      const el = document.getElementById(id)
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    const getAmbientSparkStyle = (n) => {
+      const size = 1.5 + Math.random() * 3.5
+      const delay = Math.random() * 3
+      const duration = 4 + Math.random() * 4
+      const left = Math.random() * 100
+      const bottom = -5 - Math.random() * 10
+      return {
+        width: `${size}px`,
+        height: `${size}px`,
+        left: `${left}%`,
+        bottom: `${bottom}%`,
+        animationDelay: `${delay}s`,
+        animationDuration: `${duration}s`
+      }
     }
 
-    return { displayText, isTyping, trustBadges, tickerItems, scrollTo }
+    return { displayText, isTyping, trustBadges, tickerItems, scrollTo, getAmbientSparkStyle, isDark }
   }
 }
 </script>
@@ -189,6 +215,11 @@ export default {
   color: rgba(255,255,255,0.75);
   backdrop-filter: blur(8px);
 }
+.v-theme--light .live-pill {
+  background: rgba(11, 60, 93, 0.05);
+  border: 1px solid rgba(11, 60, 93, 0.12);
+  color: rgba(11, 60, 93, 0.75);
+}
 .live-dot {
   width: 7px; height: 7px;
   border-radius: 50%;
@@ -208,6 +239,10 @@ export default {
   line-height: 1.05;
   letter-spacing: -2px;
   margin-bottom: 0;
+  color: #ffffff;
+}
+.v-theme--light .hero-headline {
+  color: #02060c;
 }
 .hero-headline-sub {
   font-size: clamp(2.8rem, 8vw, 5.5rem);
@@ -215,6 +250,9 @@ export default {
   line-height: 1.1;
   letter-spacing: -2px;
   color: rgba(255,255,255,0.92);
+}
+.v-theme--light .hero-headline-sub {
+  color: rgba(2, 6, 12, 0.92);
 }
 
 /* ── Typewriter ─────────────────────────────────── */
@@ -233,6 +271,9 @@ export default {
   margin-right: auto;
   line-height: 1.7;
 }
+.v-theme--light .hero-sub {
+  color: rgba(2, 6, 12, 0.65);
+}
 
 /* ── Gradient text ──────────────────────────────── */
 .text-accent-gradient {
@@ -249,6 +290,9 @@ export default {
   letter-spacing: 0.5px;
   color: rgba(255,255,255,0.35);
   text-transform: uppercase;
+}
+.v-theme--light .trust-badge {
+  color: rgba(2, 6, 12, 0.45);
 }
 
 /* ── Ambient glows ──────────────────────────────── */
@@ -322,7 +366,7 @@ export default {
 }
 
 .ticker-dot {
-  color: #d9b310;
+  color: #ffb703;
   font-size: 0.5rem;
   opacity: 0.7;
 }
@@ -330,5 +374,89 @@ export default {
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+/* ── CAD Scopes Overlay ─────────────────────────── */
+.tech-scopes-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.25;
+}
+
+.tech-scope {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px dashed rgba(255, 183, 3, 0.25);
+}
+
+.tech-scope.outer {
+  width: 580px;
+  height: 580px;
+  animation: rotate-clockwise 45s linear infinite;
+}
+
+.tech-scope.middle {
+  width: 380px;
+  height: 380px;
+  border-style: solid;
+  border-color: rgba(143, 166, 180, 0.08);
+  animation: rotate-counter-clockwise 30s linear infinite;
+}
+
+@keyframes rotate-clockwise {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes rotate-counter-clockwise {
+  0% { transform: translate(-50%, -50%) rotate(360deg); }
+  100% { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+/* ── Ambient Floating Sparks ─────────────────────── */
+.ambient-sparks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.ambient-spark {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #ffb703, 0 0 12px #fb8500;
+  opacity: 0;
+  animation: spark-float 3.5s infinite linear;
+}
+
+@keyframes spark-float {
+  0% { transform: translateY(0) scale(0.2); opacity: 0; }
+  20% { opacity: 0.8; }
+  80% { opacity: 0.8; }
+  100% { transform: translateY(-350px) scale(0); opacity: 0; }
+}
+
+/* ── Typewriter Glow & CNC Laser Cursor ─────────── */
+.typewriter-text {
+  color: #ffb703;
+  text-shadow: 0 0 8px rgba(255, 183, 3, 0.25);
+}
+
+.cursor {
+  color: #ffb703;
+  font-weight: 300;
+  margin-left: 2px;
+  text-shadow: 0 0 10px #ffb703, 0 0 20px #ffb703, 0 0 30px #fb8500;
 }
 </style>
